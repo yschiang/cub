@@ -167,7 +167,6 @@
                                     <goal>start-server</goal>
                                 </goals>
                             </execution>
-                            <!--
                             <execution>
                                 <id>stop-server</id>
                                 <phase>post-integration-test</phase>
@@ -175,7 +174,6 @@
                                     <goal>stop-server</goal>
                                 </goals>
                             </execution>
-                            -->
                         </executions>
                     </plugin>
                 </plugins>
