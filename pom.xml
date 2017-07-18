@@ -28,7 +28,8 @@
         
         
         <!-- Liberty server properties -->
-        <wlpServerName>LibertyProjectServer</wlpServerName>
+        <!--<wlpServerName>LibertyProjectServer</wlpServerName>-->
+        <wlpServerName>defaultServer</wlpServerName>
         <testServerHttpPort>9080</testServerHttpPort>
         <testServerHttpsPort>9443</testServerHttpsPort>
         <!--This is set in the ibm-web-ext.xml file -->
