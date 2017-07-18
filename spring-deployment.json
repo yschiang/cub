@@ -1,0 +1,65 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "a-spring",
+    "namespace": "default",
+    "labels": {
+      "app": "spring"
+    },
+    "annotations": {
+      "deployment.kubernetes.io/revision": "1",
+      "kubernetes.io/change-cause": "Initial application creation."
+    }
+  },
+  "spec": {
+    "replicas": 1,
+    "selector": {
+      "matchLabels": {
+        "app": "a-spring"
+      }
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "a-spring"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "a-spring",
+            "image": "master.cfc:8500/default/my-spring:v1",
+            "resources": {},
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "IfNotPresent",
+            "ports": [
+              {
+                "protocol": "TCP",
+                "containerPort": 9080
+              }
+            ]
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "imagePullSecrets": [
+          {
+            "name": "admin.registrykey"
+          }
+        ],
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "strategy": {
+      "type": "RollingUpdate",
+      "rollingUpdate": {
+        "maxUnavailable": 1,
+        "maxSurge": 1
+      }
+    }
+  }
+}
