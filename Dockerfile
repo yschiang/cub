@@ -1,3 +1,4 @@
+WORKDIR "/root/workspace/cicd-test"
 FROM websphere-liberty:webProfile7
 MAINTAINER IBM Java engineering at IBM Cloud
 COPY ./target/liberty/wlp/usr/servers/defaultServer /config/
